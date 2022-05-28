@@ -1,0 +1,28 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<html lang="ja">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=1024">
+    <title>{% block title %}Django Boards{% endblock %}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+</head>
+<body>
+<h1>
+    <a>ログイン:{{ user }}</a>
+    <a href="{% url 'top' %}">top</a>
+    <a href="{% url 'work' %}">work</a>
+</h1>
+{% if check != None %}
+<h2>{{ check }}</h2>
+{% else %}
+<h2>ここにプログラムメッセージが表示されます</h2>
+{% endif %}
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

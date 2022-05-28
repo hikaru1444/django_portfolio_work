@@ -1,0 +1,65 @@
+/*
+color
+black #000 rgb(0,0,0)
+white #FFF rgb(255,255,255)
+lime #0F0 rgb(0,255,0)
+aqua #0FF rgb(0,255,255)
+red #F00 rgb(255,0,0)
+
+*/
+body {
+
+}
+.content {
+  padding: 10px;
+}
+h1 {
+  margin-top: 0;
+  padding: 10px;
+  font-size: 35px;
+  background: #0F0;
+  color: #000;
+  text-align: center;
+}
+
+.container{
+  margin: 10px;
+  witdh: 100%;
+}
+.table{
+  width: 100%;
+}
+#id_year, #id_kinmu_month, #id_day, #id_day2, #id_km {
+  width: 60px
+}
+#id_syukkin, #id_taikin, #id_kyukei {
+  width: 60px;
+}
+#id_sityoson{
+  width: 300px;
+}
+
+
+@media{
+      #parent {
+        display: flex;
+        width: 100%;
+      }
+      #child1 {
+        flex-grow: 1;
+      }
+      #child2 {
+        flex-grow: 1;
+      }
+      #child3 {
+        flex-grow: 1;
+    }
+
+#news_size {
+height: 200px;
+      width: 600px;
+      overflow-y: scroll;
+    }
+    #news_color {
+      background-color: cadetblue;
+    }

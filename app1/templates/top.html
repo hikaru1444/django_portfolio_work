@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}メインページ{% endblock %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% bootstrap_button "ログイン" name="login" button_type="submit" %}
+    {% bootstrap_button "ログアウト" name="logout" button_type="submit" %}
+</form>
+<br>
+<p>ユーザー:user1,user2,user3</p>
+<p>パスワード:password</p>
+{% endblock %}

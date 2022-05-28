@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load django_bootstrap5 %}
+{% block title %}出勤表{% endblock %}
+{% block content %}
+<form method="POST" class="mb-4 col-2">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button "表示" name="btn2" button_type="submit" %}
+    {% bootstrap_button "入力" name="btn" button_type="submit" %}
+</form>
+<br>
+{% if total != None %}
+<h2>{{ total|safe }}</h2>
+{% else %}
+<h2>ここにプログラムメッセージが表示されます</h2>
+{% endif %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>名前</th>
+                <th>日付</th>
+                <th>曜日</th>
+                <th>出勤</th>
+                <th>退勤</th>
+                <th>休憩</th>
+                <th>備考</th>
+            </tr>
+            </tbody>
+            {% for i in table %}
+    {% if forloop.counter|modulo:2 == 1 %}
+        <tr class="table-primary">
+    {% else %}
+            <tr class="table-light">
+        {% endif %}
+            <td>{{ i.name }}</td>
+            <td>{{ i.date|date:"n-d" }}</td>
+            <td>{{ i.date|date:"l" }}</td>
+            <td>{{ i.in_time }}</td>
+            <td>{{ i.out_time }}</td>
+            <td>{{ i.rest_time }}</td>
+            <td>{{ i.other }}</td>
+    </tr>
+    {% endfor %}
+        </table>
+{% endblock %}
